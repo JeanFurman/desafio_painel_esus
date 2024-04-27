@@ -18,11 +18,11 @@ def get_atendimentos():
             return jsonify({'error': f'Formato invalido para data. Use YYYY-mm-dd.'}), 400
 
     # Caso queira todos os parametros do csv
-    params_corretos = dict(filter(lambda item: item[0] in dados[0], params.items()))
+    # params_corretos = dict(filter(lambda item: item[0] in dados[0], params.items()))
     
     # Apenas os parametros pedidos no git
-    # params_git = ["data_atendimento", "condicao_saude", "unidade"]
-    # params_corretos = dict(filter(lambda item: item[0] in params_git, params.items())) 
+    params_git = ["data_atendimento", "condicao_saude", "unidade"]
+    params_corretos = dict(filter(lambda item: item[0] in params_git, params.items())) 
 
     for chave, valor in params_corretos.items():
         dados = [p for p in dados if p[chave] == valor]
