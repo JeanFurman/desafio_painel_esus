@@ -1,13 +1,15 @@
 from flask import jsonify, request
 from app import app
-from app.utils import abrir_arquivo
+from app.utils import abrir_arquivo, get_dados
 
 import re
+
+abrir_arquivo()
 
 @app.route('/api/v1/atendimentos', methods=['GET'])
 def get_atendimentos():
 
-    dados = abrir_arquivo()
+    dados = get_dados()
 
     params = request.args
 

@@ -10,10 +10,13 @@ def formatar_datas_csv(data):
         except ValueError:
             pass
 
+dados = None
+
 def abrir_arquivo():
+    global dados
+    dados = []
     with open('atendimentos.csv', 'r') as arquivo_csv:
         leitor_csv = csv.DictReader(arquivo_csv)
-        dados = []
         for r in leitor_csv:
             nr = {}
             for chave, valor in r.items():
@@ -22,4 +25,6 @@ def abrir_arquivo():
                     continue
                 nr[chave.lower()] = valor
             dados.append(nr)
+
+def get_dados():
     return dados
