@@ -5,7 +5,7 @@ git clone https://github.com/JeanFurman/desafio_painel_esus.git
 ```
 
 ```bash
-docker-compose -f desafio_painel_esus/docker-compose.yml  up --build
+docker-compose up --build
 ```
 
 ## Endpoint
